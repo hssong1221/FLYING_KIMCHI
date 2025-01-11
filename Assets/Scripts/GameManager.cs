@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public Player player;
 
+    public BoxCollider2D boundary1;
+    public BoxCollider2D boundary2;
+
     private void Awake()
     {
         if(Instance == null)
@@ -52,14 +55,15 @@ public class GameManager : MonoBehaviour
             state = GameState.Playing;
             IntroUI.SetActive(false);
             DeadUI.SetActive(false);
-            for(int i = 0; i < Spawners.Length; i++)
+            player.moveSpeed = 4f;
+            for (int i = 0; i < Spawners.Length; i++)
             {
-                Spawners[i].SetActive(true);  
+                Spawners[i].SetActive(true);
             }
-            PlayStartTime = Time.time;  
+            PlayStartTime = Time.time;
         }
 
-        if(state == GameState.Playing && Lives == 0)
+        if (state == GameState.Playing && Lives == 0)
         {
             player.KillPlayer();
             DeadUI.SetActive(true);

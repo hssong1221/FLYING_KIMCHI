@@ -3,16 +3,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
-    public Animator animator;
-    public BoxCollider2D collider2D;
-    public SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private BoxCollider2D collider2D;
+    private SpriteRenderer spriteRenderer;
 
-    public float moveSpeed = 1f;
+    public BoxCollider2D frontCollider;
+
+    public float moveSpeed = 0f;
     bool isFront = true;
 
-    private bool isInvincible = false;
+    private bool isInvincible = true;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -21,22 +22,17 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
             ChangeDirection();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Move();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
