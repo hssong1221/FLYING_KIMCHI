@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float jumpForce;
-    private bool isJump;
-
     private Rigidbody2D rigidbody;
     public Animator animator;
     public BoxCollider2D collider2D;
+    public SpriteRenderer spriteRenderer;
+
+    public float moveSpeed = 1f;
+    bool isFront = true;
 
     private bool isInvincible = false;
 
@@ -17,28 +18,24 @@ public class Player : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         collider2D = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isJump)
-        {
-            rigidbody.AddForceY(jumpForce, ForceMode2D.Impulse);
-            isJump = false;
-            animator.SetInteger("State", 1);
-        }
+        if (Input.GetKeyDown(KeyCode.Space))
+            ChangeDirection();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        Move();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Equals("Platform"))
-        {
-            if (!isJump)
-                animator.SetInteger("State", 2);
-
-            isJump = true;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +57,19 @@ public class Player : MonoBehaviour
             StartInvincible();
         }
     }
+
+    void Move()
+    {
+        float direction = isFront ? 1f : -1f;
+        transform.Translate(direction * moveSpeed * Time.deltaTime * Vector3.right);
+    }
+
+    void ChangeDirection()
+    {
+        isFront = !isFront;
+        spriteRenderer.flipX = !isFront;
+    }
+
 
     void Hit()
     {
@@ -87,7 +97,6 @@ public class Player : MonoBehaviour
     {
         collider2D.enabled = false;
         animator.enabled = false;
-        rigidbody.AddForceY(jumpForce, ForceMode2D.Impulse);
     }
 }
 
