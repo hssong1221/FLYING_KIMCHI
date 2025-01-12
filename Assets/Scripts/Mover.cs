@@ -23,6 +23,7 @@ public class Mover : MonoBehaviour
 
         Physics2D.IgnoreCollision(collider, boundary1, true);
         Physics2D.IgnoreCollision(collider, boundary2, true);
+        Physics2D.IgnoreLayerCollision(6,7,true);
     }
     // Update is called once per frame
     void Update()
