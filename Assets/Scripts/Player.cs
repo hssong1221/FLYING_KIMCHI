@@ -2,44 +2,37 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float jumpForce;
-    private bool isJump;
-
     private Rigidbody2D rigidbody;
-    public Animator animator;
-    public BoxCollider2D collider2D;
+    private Animator animator;
+    private BoxCollider2D collider2D;
+    private SpriteRenderer spriteRenderer;
 
-    private bool isInvincible = false;
+    public BoxCollider2D frontCollider;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float moveSpeed = 0f;
+    bool isFront = true;
+
+    private bool isInvincible = true;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         collider2D = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isJump)
-        {
-            rigidbody.AddForceY(jumpForce, ForceMode2D.Impulse);
-            isJump = false;
-            animator.SetInteger("State", 1);
-        }
+        if (Input.GetKeyDown(KeyCode.Space))
+            ChangeDirection();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void FixedUpdate()
     {
-        if (collision.gameObject.name.Equals("Platform"))
-        {
-            if (!isJump)
-                animator.SetInteger("State", 2);
-
-            isJump = true;
-        }
+        Move();
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,6 +53,19 @@ public class Player : MonoBehaviour
             StartInvincible();
         }
     }
+
+    void Move()
+    {
+        float direction = isFront ? 1f : -1f;
+        transform.Translate(direction * moveSpeed * Time.deltaTime * Vector3.right);
+    }
+
+    void ChangeDirection()
+    {
+        isFront = !isFront;
+        spriteRenderer.flipX = !isFront;
+    }
+
 
     void Hit()
     {
@@ -87,7 +93,6 @@ public class Player : MonoBehaviour
     {
         collider2D.enabled = false;
         animator.enabled = false;
-        rigidbody.AddForceY(jumpForce, ForceMode2D.Impulse);
     }
 }
 
