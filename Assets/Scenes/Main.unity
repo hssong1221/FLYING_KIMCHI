@@ -423,6 +423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnDelay: 3
   maxSpawnDelay: 5
+  spawnRateIncreaseInterval: 1
+  spawnRateIncreaseAmount: 0.1
   gameObjects:
   - {fileID: 2267008845485292321, guid: 5f6030c45db441d4f809dc8e74952bbd, type: 3}
   - {fileID: 2267008845485292321, guid: 012eb56c79df50947b29c9fbedf9b630, type: 3}
@@ -1114,6 +1116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnDelay: 3
   maxSpawnDelay: 5
+  spawnRateIncreaseInterval: 10
+  spawnRateIncreaseAmount: 0.1
   gameObjects:
   - {fileID: 1073983988456644404, guid: 466f321fdc8646340a318f2d59c9b31a, type: 3}
 --- !u!4 &750755150
@@ -1162,6 +1166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnDelay: 3
   maxSpawnDelay: 5
+  spawnRateIncreaseInterval: 10
+  spawnRateIncreaseAmount: 0.1
   gameObjects:
   - {fileID: 4269702764398625159, guid: 80140687c6a054b419287987dcbfc65d, type: 3}
   - {fileID: 2744876442600890447, guid: 9e32a120313a7504498689b7e7e7b576, type: 3}
@@ -1390,6 +1396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnDelay: 3
   maxSpawnDelay: 5
+  spawnRateIncreaseInterval: 1
+  spawnRateIncreaseAmount: 0.1
   gameObjects:
   - {fileID: 4269702764398625159, guid: 31adbfa815e9f514bbf5607cf3e2f275, type: 3}
   - {fileID: 2744876442600890447, guid: 0d5059ee872885b42aa66673c751413e, type: 3}
@@ -1555,7 +1563,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.04478646, y: -0.43890715}
+  m_Offset: {x: 0.04478646, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1565,7 +1573,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.16469847, y: 0.30721092}
+  m_Size: {x: 0.16469847, y: 1.07}
   m_EdgeRadius: 0
 --- !u!50 &1308171029
 Rigidbody2D:
@@ -1593,7 +1601,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1308171030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2499,6 +2507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnDelay: 3
   maxSpawnDelay: 5
+  spawnRateIncreaseInterval: 10
+  spawnRateIncreaseAmount: 0.1
   gameObjects:
   - {fileID: 5917704196650609774, guid: 8061bb52768cb7c43876dcc8421106f9, type: 3}
   - {fileID: 5917704196650609774, guid: a1f64275147427348857b469a923e761, type: 3}

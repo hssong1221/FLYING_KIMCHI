@@ -34,16 +34,20 @@ public class Player : MonoBehaviour
         Move();
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Enemy"))
         {
-            if(!isInvincible)
-                Destroy(collision.gameObject);
+            /*if (!isInvincible)
+                Destroy(collision.gameObject);*/
+            Destroy(collision.gameObject);
             Hit();
         }
-        else if (collision.gameObject.tag.Equals("Food"))
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Food"))
         {
             Destroy(collision.gameObject);
             Heal();

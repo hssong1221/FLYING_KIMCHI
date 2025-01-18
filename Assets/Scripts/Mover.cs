@@ -27,7 +27,8 @@ public class Mover : MonoBehaviour
 
         Physics2D.IgnoreCollision(collider, boundary1, true);
         Physics2D.IgnoreCollision(collider, boundary2, true);
-        Physics2D.IgnoreLayerCollision(6,7,true);
+        Physics2D.IgnoreLayerCollision(6, 6, true);
+        Physics2D.IgnoreLayerCollision(6, 7, true);
 
         moveSpeed = Random.Range(0.3f, 1.7f);
         pushForce = Random.Range(10f, 25f);

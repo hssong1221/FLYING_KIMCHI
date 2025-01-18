@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
             IntroUI.SetActive(false);
             DeadUI.SetActive(false);
             player.moveSpeed = 4f;
+
             for (int i = 0; i < Spawners.Length; i++)
             {
                 Spawners[i].SetActive(true);

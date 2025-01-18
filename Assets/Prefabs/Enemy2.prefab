@@ -129,8 +129,6 @@ MonoBehaviour:
   boundary1: {fileID: 0}
   boundary2: {fileID: 0}
   isReverse: 0
-  moveSpeed: 1
-  pushForce: 25
 --- !u!114 &7520093237673820199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,4 +204,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
