@@ -1,4 +1,6 @@
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 public class Mover : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -10,8 +12,10 @@ public class Mover : MonoBehaviour
     [HideInInspector]
     public bool isReverse = false;
 
-    public float moveSpeed = 1f;
-    public float pushForce = 25f; // ³¯¾Æ°¡´Â Èû
+    float moveSpeed = 1f;
+    float pushForce = 20f; // ³¯¾Æ°¡´Â Èû
+    Vector2 leftUP = new Vector2(-1f, 1f).normalized;
+    Vector2 rightUP = new Vector2(1f, 1f).normalized;
 
     private void Start()
     {
@@ -24,6 +28,11 @@ public class Mover : MonoBehaviour
         Physics2D.IgnoreCollision(collider, boundary1, true);
         Physics2D.IgnoreCollision(collider, boundary2, true);
         Physics2D.IgnoreLayerCollision(6,7,true);
+
+        moveSpeed = Random.Range(0.3f, 1.7f);
+        pushForce = Random.Range(10f, 25f);
+        leftUP = new Vector2(Random.Range(-2f, -1f), 1f).normalized;
+        rightUP = new Vector2(Random.Range(1f, 2f), 1f).normalized;
     }
     // Update is called once per frame
     void Update()
@@ -39,8 +48,8 @@ public class Mover : MonoBehaviour
     }
 
 
-    Vector2 leftUP = new Vector2(-1f, 1f).normalized;
-    Vector2 rightUP = new Vector2(1f, 1f).normalized;
+
+    
     public void Punched()
     {
         moveSpeed = 0f;
