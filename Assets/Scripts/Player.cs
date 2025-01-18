@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     private BoxCollider2D collider2D;
     private SpriteRenderer spriteRenderer;
 
-    public BoxCollider2D frontCollider;
+    public BoxCollider2D rightCollider;
+    public BoxCollider2D leftCollider;
 
     public float moveSpeed = 0f;
     bool isFront = true;
@@ -62,6 +63,8 @@ public class Player : MonoBehaviour
 
     void ChangeDirection()
     {
+        rightCollider.enabled = !isFront;
+        leftCollider.enabled = isFront;
         isFront = !isFront;
         spriteRenderer.flipX = !isFront;
     }
