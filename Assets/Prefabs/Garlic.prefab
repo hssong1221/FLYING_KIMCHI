@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2158890809103927752}
   - component: {fileID: 3970338701329615419}
   - component: {fileID: 2721169266687827418}
-  - component: {fileID: -5764290345593490624}
   - component: {fileID: -465920723376060858}
+  - component: {fileID: -3304470486501327416}
   m_Layer: 7
   m_Name: Garlic
   m_TagString: Food
@@ -177,18 +177,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.51428574, y: 0.6571429}
   m_EdgeRadius: 0
---- !u!114 &-5764290345593490624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5917704196650609774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f7dfdfb46c5f4418f17f4a06df4d87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &-465920723376060858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,3 +223,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.51428574, y: 0.6571429}
   m_EdgeRadius: 0
+--- !u!114 &-3304470486501327416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917704196650609774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604936cc70c2f794485aa86576b65cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attribute: 1

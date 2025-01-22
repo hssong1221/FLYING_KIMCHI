@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Freeze : MonoBehaviour
+public class Item : MonoBehaviour
 {
+    public int attribute;
+
     private Rigidbody2D gravity;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,5 +19,10 @@ public class Freeze : MonoBehaviour
         {
             gravity.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+    }
+
+    public int GetAttribute()
+    {
+        return attribute;
     }
 }
