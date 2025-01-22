@@ -8,13 +8,16 @@ public class Player : MonoBehaviour
     private BoxCollider2D collider2D;
     private SpriteRenderer spriteRenderer;
     private Coroutine slowAuraCorutine;
+    private Coroutine shurikenShotterCorutine;
 
     public BoxCollider2D rightCollider;
     public BoxCollider2D leftCollider;
     public GameObject slowAura;
+    public GameObject shurikenShotter;
 
     public float moveSpeed = 0f;
     public float slowAuraDuration = 5f;
+    public float shurikenShotterDuration = 5;
     bool isFront = true;
 
     private bool isInvincible = true;
@@ -66,7 +69,7 @@ public class Player : MonoBehaviour
                 {
                     slowAuraCorutine = StartCoroutine(ActiveSlowAura());
                 }
-                else
+                else//duration renewal
                 {
                     StopCoroutine(ActiveSlowAura());
                     slowAuraCorutine = StartCoroutine(ActiveSlowAura());
@@ -75,6 +78,15 @@ public class Player : MonoBehaviour
             else if (foodItem.GetAttribute() == 2)
             {
                 Debug.Log("shuriken");
+                if(shurikenShotterCorutine == null)
+                {
+                    shurikenShotterCorutine = StartCoroutine(ActiveShurikenShotter());
+                }
+                else//duration renewal
+                {
+                    StopCoroutine (ActiveShurikenShotter());
+                    shurikenShotterCorutine = StartCoroutine (ActiveShurikenShotter());
+                }
             }
         }
         else if (collision.gameObject.tag.Equals("Gold"))
@@ -144,6 +156,24 @@ public class Player : MonoBehaviour
         }
 
         slowAuraCorutine = null;
+    }
+    private IEnumerator ActiveShurikenShotter()
+    {
+        var shurikenShotterComponent = shurikenShotter.GetComponent<ShurikenShotter>();
+
+        if (shurikenShotter != null)
+        {
+            shurikenShotterComponent.SwitchShurikenShotter();
+        }
+
+        yield return new WaitForSeconds(shurikenShotterDuration);
+
+        if (shurikenShotter != null)
+        {
+            shurikenShotterComponent.SwitchShurikenShotter();
+        }
+
+        shurikenShotterCorutine = null;
     }
 }
 
