@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public float moveSpeed = 0f;
     public float slowAuraDuration = 5f;
-    public float shurikenShotterDuration = 5;
+    public float shurikenShotterDuration = 5f;
     bool isFront = true;
 
     private bool isInvincible = true;
