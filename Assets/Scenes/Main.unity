@@ -2174,7 +2174,7 @@ MonoBehaviour:
   spawnRateIncreaseAmount: 0
   gameObjects:
   - {fileID: 5917704196650609774, guid: e4eec98d75437444d82169fc8695a4d3, type: 3}
-  target: {fileID: 1308171027}
+  target: {fileID: 1308171024}
   shotInterval: 0
   isActive: 0
 --- !u!4 &1659570120
