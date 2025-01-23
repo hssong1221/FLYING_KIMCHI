@@ -58,11 +58,11 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             var foodItem = collision.gameObject.GetComponent<Item>();
-            if(foodItem.GetAttribute()==0)
+            if(foodItem.GetAttribute()==0)//Baechu
             {
                 Heal();
             }
-            else if (foodItem.GetAttribute() == 1)
+            else if (foodItem.GetAttribute() == 1)//Garlic
             {
                 Debug.Log("slow");
                 if(slowAuraCorutine == null)
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
                     slowAuraCorutine = StartCoroutine(ActiveSlowAura());
                 }
             }
-            else if (foodItem.GetAttribute() == 2)
+            else if (foodItem.GetAttribute() == 2)//Gochu
             {
                 Debug.Log("shuriken");
                 if(shurikenShotterCorutine == null)
@@ -88,12 +88,12 @@ public class Player : MonoBehaviour
                     shurikenShotterCorutine = StartCoroutine (ActiveShurikenShotter());
                 }
             }
-        }
-        else if (collision.gameObject.tag.Equals("Gold"))
-        {
-            Destroy(collision.gameObject);
-            StartInvincible();
-        }
+            else if (foodItem.GetAttribute() == 3)//GoldBachu
+            {
+                Destroy(collision.gameObject);
+                StartInvincible();
+            }
+        }        
     }
 
     void Move()
@@ -113,9 +113,12 @@ public class Player : MonoBehaviour
 
     void Hit()
     {
-        GameManager.Instance.Lives -= 1;
-        if(GameManager.Instance.Lives <= 0)
-            KillPlayer();
+        if (!isInvincible)
+        {
+            GameManager.Instance.Lives -= 1;
+            if (GameManager.Instance.Lives <= 0)
+                KillPlayer();
+        }
     }
 
     void Heal()
@@ -127,6 +130,7 @@ public class Player : MonoBehaviour
     {
         isInvincible = true;
         Invoke("StopInvincible", 5f);
+        Debug.Log("I'm fucking invincible!");
     }
     void StopInvincible()
     {

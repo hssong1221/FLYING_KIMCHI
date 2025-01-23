@@ -1085,56 +1085,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7712678804813392671, guid: 93fc188cc61b80543867e80e8fa87a59, type: 3}
   m_PrefabInstance: {fileID: 721230634}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &750755148
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 750755150}
-  - component: {fileID: 750755149}
-  m_Layer: 0
-  m_Name: GoldSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &750755149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750755148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d98f339627d88c43bb9f6030005f6eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpawnDelay: 3
-  maxSpawnDelay: 5
-  spawnRateIncreaseInterval: 10
-  spawnRateIncreaseAmount: 0.1
-  gameObjects:
-  - {fileID: 1073983988456644404, guid: 466f321fdc8646340a318f2d59c9b31a, type: 3}
---- !u!4 &750755150
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750755148}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.56, y: -1.96, z: 20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767756483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,7 +2444,6 @@ MonoBehaviour:
   Spawners:
   - {fileID: 1282384756}
   - {fileID: 1726673570}
-  - {fileID: 750755148}
   - {fileID: 767756483}
   Lives: 3
   PlayStartTime: 0
@@ -2656,6 +2605,7 @@ MonoBehaviour:
   - {fileID: 5917704196650609774, guid: 8061bb52768cb7c43876dcc8421106f9, type: 3}
   - {fileID: 5917704196650609774, guid: a1f64275147427348857b469a923e761, type: 3}
   - {fileID: 5917704196650609774, guid: 7b31ddf4999f1bc4f8e437eb0adb437a, type: 3}
+  - {fileID: 1073983988456644404, guid: 466f321fdc8646340a318f2d59c9b31a, type: 3}
   repeatSpeed: 1.5
   distance: 7
 --- !u!1 &1792801202
@@ -3252,7 +3202,6 @@ SceneRoots:
   - {fileID: 1282384758}
   - {fileID: 767756485}
   - {fileID: 1726673572}
-  - {fileID: 750755150}
   - {fileID: 1708808670}
   - {fileID: 104773367}
   - {fileID: 1792801203}
