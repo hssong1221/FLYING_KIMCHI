@@ -6,11 +6,14 @@ public class SlowAura : MonoBehaviour
     private Vector2 initialOffset;
     [SerializeField]
     private bool isActive;
+    [SerializeField]
+    private float devSpeed;
 
     private void Start()
     {
         initialOffset = (Vector2)transform.position - (Vector2)target.position;
         isActive = false;
+        devSpeed = 2f;
     }
 
     private void Update()
@@ -25,6 +28,8 @@ public class SlowAura : MonoBehaviour
         if (isActive && collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Enemy slow");
+            var enyobj = collision.gameObject.GetComponent<Mover>();
+            enyobj.SetSpeed(devSpeed);
         }
     }
 

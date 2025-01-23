@@ -60,4 +60,9 @@ public class Mover : MonoBehaviour
 
         collider.enabled = false;
     }
+
+    public void SetSpeed(float dev)
+    {
+        moveSpeed /= dev;
+    }
 }
