@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2721169266687827418}
   - component: {fileID: 2158890809103927752}
   - component: {fileID: 3698905263343383968}
+  - component: {fileID: 2124581480525588050}
   m_Layer: 0
   m_Name: Shuriken
   m_TagString: Untagged
@@ -162,3 +163,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   shotSpeed: 0
+--- !u!111 &2124581480525588050
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917704196650609774}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: ea5776505f555b542a5226cb49aeacc8, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ea5776505f555b542a5226cb49aeacc8, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
