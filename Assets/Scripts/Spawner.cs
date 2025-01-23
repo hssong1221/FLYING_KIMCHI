@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
         CancelInvoke();
     }
 
-    void Update()
+    private void Update()
     {
         timer += Time.deltaTime;
         if (timer >= spawnRateIncreaseInterval)
@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void Spawn()
+    protected virtual void Spawn()
     {
         GameObject randomObject = gameObjects[Random.Range(0, gameObjects.Length)];
         Instantiate(randomObject, transform.position, Quaternion.identity);

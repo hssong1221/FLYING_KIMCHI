@@ -17,10 +17,10 @@ public class Player : MonoBehaviour
 
     public float moveSpeed = 0f;
     public float slowAuraDuration = 5f;
-    public float shurikenShotterDuration = 5f;
+    public float shurikenShotterDuration = 6f;
     bool isFront = true;
-
-    private bool isInvincible = true;
+    [SerializeField]
+    private bool isInvincible = false;
 
     void Start()
     {
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         collider2D = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        isInvincible = false;
     }
 
     void Update()
@@ -178,6 +179,11 @@ public class Player : MonoBehaviour
         }
 
         shurikenShotterCorutine = null;
+    }
+
+    public bool GetDirection()
+    {
+        return isFront;
     }
 }
 
